@@ -2,7 +2,7 @@ import { Entity,BaseEntity, PrimaryColumn, Column } from "typeorm";
 
 @Entity({name: "location"})
 export class Location extends BaseEntity{
-    @PrimaryColumn("increment")
+    @PrimaryColumn({ type: "int", unsigned: true })
     id!: number;
     @Column({type:"double"})
     latitude!: number;
@@ -12,11 +12,11 @@ export class Location extends BaseEntity{
     address!: string;
     @Column({type: "varchar",length:255})
     name!: string;
-    @Column({type: "datetime",length:6})
+    @Column({type: "datetime"})
     created_at!: string;
-    @Column({type: "datetime",length:6})
+    @Column({type: "datetime"})
     updated_at!: string;
-    @Column({type: "datetime",length:6})
+    @Column({type: "datetime"})
     deleted_at!: Date;
     @Column({type: "int"})
     version!: string;

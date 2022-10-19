@@ -1,7 +1,7 @@
+import { User } from './../Entities/user';
+import { Exercise } from './../Entities/exercise';
+import { Location } from './../Entities/location';
 import { DataSource } from "typeorm";
-
-
-
 
     const local_dataSource = new DataSource({
         "type": "mysql",
@@ -9,10 +9,11 @@ import { DataSource } from "typeorm";
         "port": 3306,
         "username": "admin1",
         "password": "G7vd]8)TR.bT/BFe",
-        "database": "edvisory",
+        "database": "orm_test",
         "synchronize": true,
         "logging": true,
-        "entities": [],
+        "entities": [Exercise, Location, User],
+
     })
     console.log("connected");
     local_dataSource.initialize()

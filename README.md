@@ -1,22 +1,24 @@
 ## Start typescript and typeORM
 
-### install package 1. typescript 2. nodemon auto compile file 3. express backend RESTAPI
+#### install package 1. typescript 2. nodemon auto compile file 3. express backend RESTAPI
 
 ```
 npm i ts-node typescript nodemon express
 ```
 
+#### connect backend to mysql database install package and set driver and config synch table in "entities"
+
 ```
 npm i @types/mysql @types/express
 ```
 
-### run index.ts
+#### run index.ts
 
 ```
 ts-node index.ts
 ```
 
-### enable experimentalDecorators to disable problem check
+#### enable experimentalDecorators to disable problem check
 
 ```
     "experimentalDecorators": true,
