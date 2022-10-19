@@ -1,4 +1,4 @@
-import { Entity,BaseEntity, PrimaryColumn, Column } from "typeorm";
+import { Entity,BaseEntity, PrimaryColumn, Column, CreateDateColumn } from "typeorm";
 
 @Entity({name: "location"})
 export class Location extends BaseEntity{
@@ -12,11 +12,11 @@ export class Location extends BaseEntity{
     address!: string;
     @Column({type: "varchar",length:255})
     name!: string;
-    @Column({type: "datetime"})
+    @CreateDateColumn()
     created_at!: string;
-    @Column({type: "datetime"})
+    @CreateDateColumn()
     updated_at!: string;
-    @Column({type: "datetime"})
+    @Column({type: "datetime",default: null})
     deleted_at!: Date;
     @Column({type: "int"})
     version!: string;

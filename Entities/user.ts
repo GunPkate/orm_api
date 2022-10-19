@@ -1,4 +1,4 @@
-import { Entity,BaseEntity, PrimaryColumn, Column } from "typeorm";
+import { Entity,BaseEntity, PrimaryColumn, Column, CreateDateColumn } from "typeorm";
 
 @Entity({name: "user"})
 export class User extends BaseEntity{
@@ -15,11 +15,11 @@ export class User extends BaseEntity{
     password!: string;
     @Column({type: "varchar",length:255})
     email!: string;
-    @Column({type: "datetime"})
+    @CreateDateColumn()
     created_at!: Date;
-    @Column({type: "datetime"})
+    @CreateDateColumn()
     updated_at!: Date;
-    @Column({type: "datetime"})
+    @Column({type: "datetime",default: null})
     deleted_at!: Date;
     @Column({type: "int"})
     version!: string;

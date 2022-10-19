@@ -1,17 +1,17 @@
-import { Entity,BaseEntity, PrimaryColumn, Column } from "typeorm";
+import { Entity,BaseEntity, PrimaryColumn, Column, CreateDateColumn } from "typeorm";
 
 @Entity({name: "exercise"})
 export class Exercise extends BaseEntity{
-    @PrimaryColumn({ type: "int", unsigned: true })
+    @PrimaryColumn({ type: "int", unsigned: true ,})
     id!: number;
 
     @Column({type: "varchar",length:255})
     type!: string;
 
-    @Column({type:"int"})
+    @Column({type:"int",  nullable: true, default: null})
     locationId!: number
 
-    @Column({type:"int"})
+    @Column({type:"int",  nullable: true, default: null})
     userId!: number
 
     @Column({type:"double"})
@@ -20,13 +20,13 @@ export class Exercise extends BaseEntity{
     @Column({type:"double"})
     calories!: number;
     
-    @Column({type: "datetime"})
+    @CreateDateColumn()
     created_at!: Date;
 
-    @Column({type: "datetime"})
+    @CreateDateColumn()
     updated_at!: Date;
 
-    @Column({type: "datetime"})
+    @Column({type: "datetime", nullable: true})
     deleted_at!: Date;
     
     @Column({type: "int"})

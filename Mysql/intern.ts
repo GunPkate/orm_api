@@ -9,7 +9,7 @@ import { DataSource } from "typeorm";
         "port": 3406,
         "username": "root",
         "password": "Tu5602680",
-        "database": "",
+        "database": "intern_dev",
         "synchronize": true,
         "logging": true,
         "entities": [],
