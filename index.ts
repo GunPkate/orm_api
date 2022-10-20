@@ -5,6 +5,7 @@ import user from "./Routes/user";
 
 const port:Number = 3000;
 const app:Application = express();
+app.use(express.json());
 
 local_dataSource.initialize()
 // intern_dataSource.initialize()

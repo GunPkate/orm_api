@@ -12,9 +12,9 @@ user.get('/getall',async(req:Request,res:Response)=>{
     console.log("count: ",find.length);
     
     res.status(200).json({
-        statusCode: 200,
-        Description: "find all",
-        Data : find 
+        code: 200,
+        sescription: "find all",
+        data : find 
     })
 })
 
@@ -26,33 +26,39 @@ user.get('/getbyid/:id',async(req:Request,res:Response)=>{
     const find = await User.find({ where:{id: id}})
 
     res.status(200).json({
-        statusCode: 200,
-        Description: "find all",
-        Data : find 
+        code: 200,
+        description: `find by ${id}`,
+        data : find 
     })
 })
 user.post('/createuser',(req:Request,res:Response)=>{
     const {firstname,lastname,username,password,email,} = req.body;
+    console.log(req.body);
+    
     try {
-        const added = User.create({
-            // id: 1,
+        const added = User.insert({
+            id: 15,
             firstname:firstname,
             lastname:lastname ,
             username:username ,
             password:password ,
             email:email ,
+            version : 1
             // created_at: "2022-06-09 17:08:26.527471",
             // updated_at: "2022-06-09 17:08:26.527471",
             // deleted_at: null,
             // version: 1
         })
         res.status(201).json({
-            statusCode: 201,
-            Description: "added",
-            Data : added 
+            code: 201,
+            description: "added",
+            // data : added 
         })
     } catch (error) {
-        
+        res.status(500).json({
+            code: 500,
+            description: error,
+        })
     }
 
 }

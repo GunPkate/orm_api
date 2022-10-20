@@ -19,6 +19,6 @@ export class Location extends BaseEntity{
     @Column({type: "datetime",default: null})
     deleted_at!: Date;
     @Column({type: "int"})
-    version!: string;
+    version!: number;
 
 }

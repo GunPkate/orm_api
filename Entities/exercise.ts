@@ -30,6 +30,6 @@ export class Exercise extends BaseEntity{
     deleted_at!: Date;
     
     @Column({type: "int"})
-    version!: string;
+    version!: number;
 
 }

@@ -2,7 +2,7 @@ import { Entity,BaseEntity, PrimaryColumn, Column, CreateDateColumn } from "type
 
 @Entity({name: "user"})
 export class User extends BaseEntity{
-    @PrimaryColumn({ type: "int", unsigned: true })
+    @PrimaryColumn({ type: "int", unsigned: true ,})
     id!: number;
 
     @Column({type: "varchar",length:64})
@@ -22,6 +22,6 @@ export class User extends BaseEntity{
     @Column({type: "datetime",default: null})
     deleted_at!: Date;
     @Column({type: "int"})
-    version!: string;
+    version!: number;
 
 }
