@@ -1,4 +1,6 @@
-import { Entity,BaseEntity, PrimaryColumn, Column, CreateDateColumn } from "typeorm";
+import { Entity,BaseEntity, PrimaryColumn, Column, CreateDateColumn, ManyToOne, JoinColumn } from "typeorm";
+import { User } from "./user";
+import { Location } from "./location";
 
 @Entity({name: "exercise"})
 export class Exercise extends BaseEntity{
@@ -13,6 +15,15 @@ export class Exercise extends BaseEntity{
 
     @Column({type:"int",  nullable: true, default: null})
     userId!: number
+
+    // @ManyToOne(()=>User,(E)=>E.id,{nullable:true})
+    // @JoinColumn({name: "userId",referencedColumnName:"id"})
+    // userId!: User;
+
+    // @ManyToOne(()=>Location,(E)=>E.id,{nullable:true})
+    // @JoinColumn({name:"locationId",referencedColumnName:"id"})
+    // locationId!: Location;
+
 
     @Column({type:"double"})
     duration!: number;

@@ -37,7 +37,7 @@ user.post('/createuser',(req:Request,res:Response)=>{
     
     try {
         const added = User.insert({
-            id: 15,
+            id: 1,
             firstname:firstname,
             lastname:lastname ,
             username:username ,
