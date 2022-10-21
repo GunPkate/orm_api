@@ -31,6 +31,23 @@ user.get('/getbyid/:id',async(req:Request,res:Response)=>{
         data : find 
     })
 })
+
+user.get('/getbyid2/:id',async(req:Request,res:Response)=>{
+    const id = parseInt(req.params.id)
+    console.log(id);
+    
+    const find = await local_dataSource.createQueryBuilder().select("user").from(User,'user') // build only
+    // console.log(find)
+    
+    const test = await find.getMany() // get data
+    console.log(test);
+    // res.status(200).json({
+    //     code: 200,
+    //     description: `find by ${id}`,
+    //     data : find 
+    // })
+})
+
 user.post('/createuser',(req:Request,res:Response)=>{
     const {firstname,lastname,username,password,email,} = req.body;
     console.log(req.body);
