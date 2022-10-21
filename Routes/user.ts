@@ -39,8 +39,8 @@ user.get('/getbyid2/:id',async(req:Request,res:Response)=>{
     const find = await local_dataSource.createQueryBuilder().select("user").from(User,'user') // build only
     // console.log(find)
     
-    const test = await find.getMany() // get data
-    console.log(test);
+    const testdata = await find.getMany() // get data
+    console.log(testdata);
     // res.status(200).json({
     //     code: 200,
     //     description: `find by ${id}`,
