@@ -42,3 +42,5 @@ npm i nodemailer handlebar
 https://nodemailer.com/about/
 
 ### handlebars construct string template for email whose data parameter can be changed.
+
+https://www.npmjs.com/package/handlebars
