@@ -1,32 +1,50 @@
-import express,{ Application,Request,Response } from "express";
-import intern_dataSource from "./Mysql/intern";
-import local_dataSource from "./Mysql/local";
-import user from "./Routes/user";
-import mailer from "./Routes/mailer"
-import cron = require('cron')
-const cronjob = cron.CronJob
-import test from "./Controller/emailController";
+import express, { Application } from "express";
+import mailer from "./Routes/mailer";
+import cron = require("cron");
+const cronjob = cron.CronJob;
+import { sendEmail } from "./function/sendmail";
+import moment from "moment";
 
-const port:Number = 3000;
-const app:Application = express();
+const port: Number = 3000;
+const app: Application = express();
 app.use(express.json());
 
-// local_dataSource.initialize()
-// intern_dataSource.initialize()
-// app.get('/',(req:Request,res:Response)=>res.send("Hello123"))
+app.use("/api/mailer", mailer);
 
-// app.use('/api/user',user)
-app.use('/api/mailer',mailer)
+let num: Number = 0;
+// const checkMonth: Number = parseInt(moment().format("MM"));
+// const checkMonth: Number = 3;
+// checkMonth === 3 || checkMonth === 12
+//   ? (num = 24)
+//   : checkMonth === 6 || checkMonth === 9
+//   ? (num = 23)
+//   : (num = 1);
+// let time_set = `* 0 8 22,1,${num} 11,2,5,8,9 *`; // SET date
+// let time_set = `*/10 *  21,1,23 11,2,5,8,9 *`;
+let time_set = `*/2 * * * * *`;
+// console.log(time_set);
+// console.log(checkMonth, typeof checkMonth, num);
 
-var job = new cronjob(
-	'* * * * * *',
-	async function() {
-		// test()
-        await app.use('/api/mailer',mailer)
-	},
-	null,
-	true,
-	'America/Los_Angeles'
-);
+// var job = new cronjob(
+//   time_set,
+//   async function () {
+//     //Body
+//     const data = {
+//       to: "gundash1@hotmail.com",
+//       subject: "Education",
+//       department: "CU Engineer",
+//       file: "exercise.csv",
+//       attachment: "attach/exercise.csv",
+//     };
 
-app.listen(port,()=>console.log(`start server port: ${port}`))
+//     sendEmail(data);
+//     // await app.use("/api/mailer", mailer);
+//   },
+//   null,
+//   true,
+//   "Asia/Bangkok"
+// );
+// job.start();
+//service que
+
+app.listen(port, () => console.log(`start server port: ${port}`));
