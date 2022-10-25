@@ -1,4 +1,4 @@
-## Start typescript and typeORM
+## typescript typeORM & Schedule Email
 
 #### install package 1. typescript 2. nodemon auto compile file 3. express backend RESTAPI
 
@@ -18,7 +18,7 @@ npm i @types/mysql @types/express
 ts-node index.ts
 ```
 
-#### enable experimentalDecorators to disable problem check
+#### enable experimentalDecorators to disable problem check.
 
 ```
     "experimentalDecorators": true,
@@ -26,4 +26,19 @@ ts-node index.ts
 
 ```
 
-### typeORM you need to embody Entity in accordance with model in table data after then synch data rows
+### typeORM you need to embody Entity in accordance with model in table data after then synch data rows.
+
+
+### Node mailer 
+
+```
+npm i nodemailer handlebar 
+```
+### nodemailer consists of 3 sections. 
+### 1. nodemailer.createTransport   to use service and auth by using email & password.
+### 2. transporter.sendMail         to generate body of email and content (attach file is optional).
+### 3. return transporter.sendMail(OPTIONAL)    to monitor result .
+
+https://nodemailer.com/about/
+
+### handlebars construct string template for email whose data parameter can be changed.
